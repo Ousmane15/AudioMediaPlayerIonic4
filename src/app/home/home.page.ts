@@ -2,6 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { Howl } from 'howler';
 import { IonRange } from '@ionic/angular';
 
+export interface Track {
+  name: string;
+  path: string;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -63,7 +68,7 @@ export class HomePage {
 
   next() {
     let index = this.playlist.indexOf(this.activeTrack);
-    if (index != this.playlist.length - 1) {
+    if (index !== this.playlist.length - 1) {
       this.start(this.playlist[index + 1]);
     } else {
       this.start(this.playlist[0]);
